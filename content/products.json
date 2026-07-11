@@ -1,0 +1,14 @@
+{
+  "categories": [
+    {
+      "name": "Zippers",
+      "products": [
+        {
+          "name": "Nylon",
+          "description": "Nylon Zipper",
+          "image": "images/fiber-zipper.jpg"
+        }
+      ]
+    }
+  ]
+}
