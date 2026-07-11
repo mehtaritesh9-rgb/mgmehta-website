@@ -1,0 +1,94 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "images"
+
+site_url: https://mgmehta.net
+display_url: https://mgmehta.net
+
+locale: "en"
+
+collections:
+  - name: "products"
+    label: "Products"
+    files:
+      - name: "products"
+        label: "All Products"
+        file: "content/products.json"
+        fields:
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Category Name", name: "name", widget: "string" }
+              - label: "Products"
+                name: "products"
+                widget: "list"
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: "Product Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Photo (leave empty to show a text badge instead)", name: "image", widget: "image", required: false }
+
+  - name: "site"
+    label: "Site Content"
+    files:
+      - name: "site"
+        label: "Homepage & Contact Info"
+        file: "content/site.json"
+        fields:
+          - { label: "Logo", name: "logo", widget: "image" }
+
+          - label: "Hero Section (top banner)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Small text above title", name: "eyebrow", widget: "string" }
+              - { label: "Title (first line)", name: "title", widget: "string" }
+              - { label: "Title (highlighted line)", name: "titleEmphasis", widget: "string" }
+              - { label: "Subtitle paragraph", name: "subtitle", widget: "text" }
+              - label: "Banner Photos (5 images)"
+                name: "images"
+                widget: "list"
+                field: { label: "Image", name: "image", widget: "image" }
+
+          - label: "Brand Names Strip"
+            name: "brands"
+            widget: "list"
+            field: { label: "Brand Name", name: "brand", widget: "string" }
+
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Title (first line)", name: "titleLine1", widget: "string" }
+              - { label: "Title (second line)", name: "titleLine2", widget: "string" }
+              - { label: "Paragraph 1", name: "paragraph1", widget: "text" }
+              - { label: "Paragraph 2", name: "paragraph2", widget: "text" }
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                summary: "{{fields.num}} — {{fields.label}}"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+              - label: "Photos (4 images)"
+                name: "photos"
+                widget: "list"
+                field: { label: "Image", name: "image", widget: "image" }
+
+          - label: "Contact Info"
+            name: "contact"
+            widget: "object"
+            fields:
+              - label: "Phone Numbers"
+                name: "phones"
+                widget: "list"
+                field: { label: "Phone", name: "phone", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Address", name: "address", widget: "text" }
+              - { label: "Business Hours (line 1)", name: "hoursLine1", widget: "string" }
+              - { label: "Business Hours (line 2)", name: "hoursLine2", widget: "string" }
